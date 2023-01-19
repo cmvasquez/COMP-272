@@ -3,39 +3,39 @@ import java.io.*;
 class Node {
     int data;
     Node next;
-    Node(int d) // Constructor
+    Node(int d)                                                          // Constructor
     {
         data = d;
         next = null;
     }
 }
 
-public class LUCLinkedList {// a Singly Linked List
-    Node head; // head of list
-    public static LUCLinkedList insert(LUCLinkedList list, int data) // Method to insert a new node
+public class LUCLinkedList {                                             // a Singly Linked List
+    Node head;                                                           // head of list
+    public static LUCLinkedList insert(LUCLinkedList list, int data)     // Method to insert a new node
     {
-        Node new_node = new Node(data); // Create a new node with given data
+        Node new_node = new Node(data);                                  // Create a new node with given data
         new_node.next = null;
-        if (list.head == null) { // If the Linked List is empty, then make the new node as head
+        if (list.head == null) {                                         // If the Linked List is empty, then make the new node as head
             list.head = new_node;
         }
-        else {// Else traverse till the last node and insert the new_node there
+        else {                                                           // Else traverse till the last node and insert the new_node there
             Node last = list.head;
             while (last.next != null) {
                 last = last.next;
             }
-            last.next = new_node; // Insert the new_node at last node
+            last.next = new_node;                                        // Insert the new_node at last node
         }
         return list;
     }
 
-    public static void printList(LUCLinkedList list) // Method to print the LinkedList.
+    public static void printList(LUCLinkedList list)                     // Method to print the LinkedList.
     {
         Node currNode = list.head;
         System.out.print("LinkedList: ");
-        while (currNode != null) { // Traverse through the LinkedList
-            System.out.print(currNode.data + " "); // Print the data at current node
-            currNode = currNode.next; // Go to next node
+        while (currNode != null) {                                       // Traverse through the LinkedList
+            System.out.print(currNode.data + " ");                       // Print the data at current node
+            currNode = currNode.next;                                    // Go to next node
         }
     }
 
@@ -45,30 +45,31 @@ public class LUCLinkedList {// a Singly Linked List
     * Written by Christian Vasquez
      */
     public static void addData(LUCLinkedList list) {
-        int sum = 0; // output variable
-        Node currNode = list.head; // list head
-        while (currNode != null) { // traverse through the list
-            sum += currNode.data; // add the current data to sum
-            currNode = currNode.next; // set currNode to next node
+        int sum = 0;                                                      // output variable
+        Node currNode = list.head;                                        // list head
+        while (currNode != null) {                                        // traverse through the list
+            sum += currNode.data;                                         // add the current data to sum
+            currNode = currNode.next;                                     // set currNode to next node
         }
-        System.out.println("\nAll elements of linked list added together = " + sum); // print result
-    } // method addData
+        System.out.println("\nAll elements of linked list added together = " + sum); 
+    } // method addData                                                               
 
     /*
      * In class activity #1 1/19/23
      * B. Write a method that finds the maximum (data) element of a list
      * Written by Christian Vasquez
      */
-    public static void maxElement(LUCLinkedList list) {
-        int max = 0; // output variable
-        Node currNode = list.head; // list head
-        while (currNode != null) { // traverse through list
-            if (currNode.data > max) { // if the current value is larger than the value of max
-                max = currNode.data; // set max to the current value
+    public static int maxElement(LUCLinkedList list) {
+        int max = 0;                                                     // output variable
+        Node currNode = list.head;                                       // list head
+        while (currNode != null) {                                       // traverse through list
+            if (currNode.data >= max) {                                  // if the current value is larger than the value of max
+                max = currNode.data;                                     // set max to the current value
             }
-            currNode = currNode.next; // set currNode to the next node in list
+            currNode = currNode.next;                                    // set currNode to the next node in list
         }
-        System.out.print("The maximum element of the list is: " + max); // print result
+        System.out.print("The maximum element of the list is: " + max);  // print result
+        return max;
     } // method maxElement
 
     /*
@@ -77,13 +78,13 @@ public class LUCLinkedList {// a Singly Linked List
      * Written by Christian Vasquez
      */
     public static void evenElements(LUCLinkedList list) {
-        Node currNode = list.head; // list head
+        Node currNode = list.head;                                       // list head
         System.out.print("\nLinked List (Even elements): ");
-        while (currNode != null) { // traverse through list
-            if (currNode.data % 2 == 0) { // if the current data point is even
-                System.out.print(currNode.data + " "); // Print the data at current node
+        while (currNode != null) {                                       // traverse through list
+            if (currNode.data % 2 == 0) {                                // if the current data point is even
+                System.out.print(currNode.data + " ");                   // Print the data at current node
             }
-            currNode = currNode.next;
+            currNode = currNode.next;                                    // Set current node to next node
         }
     } // method evenElements
 
@@ -93,13 +94,13 @@ public class LUCLinkedList {// a Singly Linked List
      * Written by Christian Vasquez
      */
     public static void removal(LUCLinkedList list, int num){
-        Node currNode = list.head; // list head
+        Node currNode = list.head;                                       // list head
         System.out.print("\nLinked List (without " + num + "): ");
-        while (currNode != null) { // traverse through list
-            if (currNode.data != num) { // if the current data point does not match the input number
-                System.out.print(currNode.data + " "); // Print the data at current node
+        while (currNode != null) {                                       // traverse through list
+            if (currNode.data != num) {                                  // if the current data point does not match the input number
+                System.out.print(currNode.data + " ");                   // Print the data at current node
             }
-            currNode = currNode.next; // set currNode to next node
+            currNode = currNode.next;                                    // set currNode to next node
         }
     } // method removal
 
@@ -115,10 +116,10 @@ public class LUCLinkedList {// a Singly Linked List
         list = insert(list, 5);
         list = insert(list, 6);
         list = insert(list, 7);
-        printList(list); // Print the LinkedList
-        addData(list); // add the data together (A)
-        maxElement(list); // find the max element (B)
-        evenElements(list); // print only even elements of LinkedList
-        removal(list, 0);
+        printList(list);                                                 // Print the LinkedList
+        addData(list);                                                   // add the data together (A)
+        maxElement(list);                                                // find the max element (B)
+        evenElements(list);                                              // print only even elements of LinkedList (C)
+        removal(list, 0);                                                // print linked list with input num removed (D)
     }
 }
